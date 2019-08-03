@@ -1,7 +1,8 @@
-import MainMenuApp from './Components/MainMenu.vue'
+import Vue from 'vue'
 
+import MainMenuApp from './Components/MainMenu.vue'
 
 new Vue({
   el: '#app',
-  components: { MainMenuApp },
+  render: h => h(MainMenuApp)
 })

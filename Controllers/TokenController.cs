@@ -8,21 +8,22 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using AutoPartsStoreLibrary;
+//using AutoPartsStoreLibrary;
 
-namespace AutoPartsStoreApi.Controllers
-{
+namespace AutoPartsStoreApi.Controllers {
     [Route ("[controller]")]
     [ApiController]
-    public class TokenController : ControllerBase
-    {
+    public class TokenController : ControllerBase {
+
+        [HttpGet("qwe")]
+        public string First () {
+            return "first";
+        }
 
         [HttpGet]
-        public async Task Authorization (string login, string pass)
-        {
+        public async Task Authorization (string login, string pass) {
             var identity = GetIdentity (login, pass);
-            if (identity == null)
-            {
+            if (identity == null) {
                 Response.StatusCode = 400;
                 await Response.WriteAsync ("Invalid username or password.");
 
@@ -39,8 +40,7 @@ namespace AutoPartsStoreApi.Controllers
                 signingCredentials: new SigningCredentials (AuthOptions.GetSymmetricSecurityKey (), SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler ().WriteToken (jwt);
 
-            var response = new
-            {
+            var response = new {
                 access_token = encodedJwt,
                 username = identity.Name
             };
@@ -51,8 +51,7 @@ namespace AutoPartsStoreApi.Controllers
 
         }
 
-        private ClaimsIdentity GetIdentity (string username, string password)
-        {
+        private ClaimsIdentity GetIdentity (string username, string password) {
             // Person person = people.FirstOrDefault (x => x.Login == username && x.Password == password);
             // if (person != null)
             // {
