@@ -8,13 +8,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-//using AutoPartsStoreLibrary;
+using AutoPartsStoreLibrary;
 
 namespace AutoPartsStoreApi.Controllers {
     [Route ("[controller]")]
     [ApiController]
     public class TokenController : ControllerBase {
 
+        private AutoStoreDBContext _context;
+        public AutoStoreDBContext (AutoStoreDBContext _context){
+
+        }
         [HttpGet("qwe")]
         public string First () {
             return "first";
