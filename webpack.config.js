@@ -2,8 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry:{
-    MainMenu:'./VueComponents/MainMenu/MainMenu.js'
+  entry: {
+    Main: './VueComponents/Main/Main.js'
   },
   output: {
     path: path.resolve(__dirname, './Scripts/npm'),
@@ -18,7 +18,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -48,9 +48,13 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true,
+    proxy: {
+      "*": {
+        "target": "https://localhost:5001",
+        "secure": false,
+        "changeOrigin": true
+        }
+    }
   },
   performance: {
     hints: false

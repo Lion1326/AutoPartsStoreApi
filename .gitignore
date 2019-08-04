@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode/
+.vs/
 obj/
 bin/
 App_Data/*
@@ -15,3 +16,4 @@ App_Data/*
 *.ntvs*
 *.njsproj
 *.sln
+AutoPartsStoreApi.csproj.user
