@@ -27,8 +27,9 @@ namespace AutoPartsStore
 
         public void ConfigureServices (IServiceCollection services)
         {
-            /* services.AddDbContext<AutoStoreDBContext> (options =>
-                options.UseSqlServer (Configuration.GetConnectionString ("StringDB")));*/
+            services.AddDbContext<AutoStoreDBContext> (options =>
+                options.UseSqlServer (Configuration.GetConnectionString ("StringDB")));
+            RepositoriesInjection.Inject (services);
             services.AddMvc ();
         }
 
