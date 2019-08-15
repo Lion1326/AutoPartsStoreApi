@@ -30,5 +30,6 @@ namespace AutoPartsStore
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<passanger_car_attribute> passanger_car_attributes { get; set; }
     }
 }
