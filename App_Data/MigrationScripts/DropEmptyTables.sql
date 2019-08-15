@@ -1,0 +1,10 @@
+drop table MSSsmaDmNCKeyColumns
+drop table suppliers_with_nv_linkages
+drop table suppliers_with_nv_articles
+drop table suppliers
+drop table supplier_details
+drop table prd
+drop table passanger_cars
+drop table passanger_car_trees
+drop table passanger_car_qsi
+drop table passanger_car_prd
